@@ -11,7 +11,7 @@
 
         public DaysService(HttpClient httpClient) => _httpClient = httpClient;
 
-        public async Task<list<UsersDays>> GetDays()
+        public static async Task<list<UsersDays>> GetDays()
         {
             ConfigureClient();
             var response = await _httpClient.GetAsync(_Endpoint);

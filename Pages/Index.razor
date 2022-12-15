@@ -1,9 +1,12 @@
 ﻿@page "/"
 @using Enterprise_Applications_Development_1_CA3.wwwroot.Models
-@inject Enterprise_Applications_Development_1_CA3.wwwroot.IDayService DayService
+@inject Enterprise_Applications_Development_1_CA3.wwwroot.Models.IDaysService DayService
+
+
 <PageTitle>Index</PageTitle>
 <h1>Reeling in the days</h1>
 <br/>
+
 <div>
     @if (UsersDays == null)
     {
@@ -16,13 +19,14 @@
         {
             <div class="col-4">
                 <div class="card">
-                
-                
-            </div>
-        }
-    }
+                    <img src="@item.ImageUrl"/>
+                    <div/>
+
+                </div>
+                }
+                }
     
-</div>
+            </div>
 
 
 @code
