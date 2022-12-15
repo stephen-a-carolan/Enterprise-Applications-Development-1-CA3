@@ -1,9 +1,44 @@
 ﻿@page "/"
-
+@using Enterprise applications development 1 CA3.models
+@inject IDayService DayService
 <PageTitle>Index</PageTitle>
+<h1>Reeling in the days</h1>
+<br/>
+<div>
+    @if (UsersDays == null)
+    {
+        <p>Loading...</p>
+    }
+    else
+    {
+        <div> class="row"</div>
+        @foreach (var item in UsersDays)
+        {
+            <div class="col-4">
+                <div class="card">
+                
+                
+            </div>
+        }
+    }
+    
+</div>
 
-<h1>Hello, world!</h1>
 
-Welcome to your new app.
+@code
+{
+    public List<UsersDay> UsersDays { get; set; }
+    public string? Error { get; set; }
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            UsersDays = await DaysService.GetDays();
+        }
+        catch (Exception e)
+        {
+            Error = e.Message;
+        }
+    }
+}
